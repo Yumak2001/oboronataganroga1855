@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">oboronataganroga1855</string>
     <string name="title_activity_main_navigation">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_sites">Площадки</string>
+    <string name="title_map">Карта</string>
+    <string name="title_account">Аккаунт</string>
 </resources>

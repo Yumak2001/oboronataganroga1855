@@ -1,4 +1,4 @@
-package org.lentils.oboronataganroga1855.ui.dashboard;
+package org.lentils.oboronataganroga1855.ui.account;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.lentils.oboronataganroga1855.R;
 
-public class DashboardFragment extends Fragment {
+public class AccountFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private AccountViewModel accountViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        accountViewModel =
+                new ViewModelProvider(this).get(AccountViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_account, container, false);
+        final TextView textView = root.findViewById(R.id.text_account);
+        accountViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
