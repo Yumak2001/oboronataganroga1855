@@ -17,11 +17,11 @@ import org.lentils.oboronataganroga1855.ui.sites.SitesFragment;
 
 public class MainNavigationActivity extends AppCompatActivity {
 
-    final Fragment fragment1 = new AccountFragment();
-    final Fragment fragment2 = new SitesFragment();
-    final Fragment fragment3 = new MapFragment();
+    final Fragment accountFragment = new AccountFragment();
+    final Fragment sitesFragment = new SitesFragment();
+    final Fragment mapFragment = new MapFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragment1;
+    Fragment active = accountFragment;
 
     @Override
     public void onBackPressed() {
@@ -37,9 +37,9 @@ public class MainNavigationActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.nav_view);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fm.beginTransaction().add(R.id.main_activity, fragment3, "3").hide(fragment3).commit();
-        fm.beginTransaction().add(R.id.main_activity, fragment2, "2").hide(fragment2).commit();
-        fm.beginTransaction().add(R.id.main_activity,fragment1, "1").commit();
+        fm.beginTransaction().add(R.id.main_activity, mapFragment, "3").hide(mapFragment).commit();
+        fm.beginTransaction().add(R.id.main_activity, sitesFragment, "2").hide(sitesFragment).commit();
+        fm.beginTransaction().add(R.id.main_activity, accountFragment, "1").commit();
 
     }
 
@@ -51,18 +51,18 @@ public class MainNavigationActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_account:
-                    fm.beginTransaction().hide(active).show(fragment1).commit();
-                    active = fragment1;
+                    fm.beginTransaction().hide(active).show(accountFragment).commit();
+                    active = accountFragment;
                     return true;
 
                 case R.id.navigation_sites:
-                    fm.beginTransaction().hide(active).show(fragment2).commit();
-                    active = fragment2;
+                    fm.beginTransaction().hide(active).show(sitesFragment).commit();
+                    active = sitesFragment;
                     return true;
 
                 case R.id.navigation_maps:
-                    fm.beginTransaction().hide(active).show(fragment3).commit();
-                    active = fragment3;
+                    fm.beginTransaction().hide(active).show(mapFragment).commit();
+                    active = mapFragment;
                     return true;
             }
             return false;
@@ -79,24 +79,7 @@ public class MainNavigationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_navigation);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_account, R.id.navigation_sites, R.id.navigation_maps)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-    }
-    */
 
 }

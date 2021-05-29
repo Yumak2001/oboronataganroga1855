@@ -29,27 +29,39 @@ public class Place {
         this.time = time;
     }
 
-    public String setType() {
+    public Place(String type, String title, String description, String data, String time) {
+        this.type = type;
+        this.title = title;
+        this.description = description;
+        this.data = data;
+        this.time = time;
+    }
+
+    public String getType() {
         return this.type;
     }
 
-    public String setTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-    public String setDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-    public ArrayList<Double> setMap() {
-        return this.map;
+    public Double getMap1() {
+        return this.map.get(0);
     }
 
-    public String setData() {
+    public Double getMap2() {
+        return this.map.get(1);
+    }
+
+    public String getData() {
         return this.data;
     }
 
-    public String setTime() {
+    public String getTime() {
         return this.time;
     }
 
@@ -59,6 +71,7 @@ public class Place {
         } else {
             this.icon = (BitmapDescriptor) BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE);
         }
-        return new MarkerOptions().position(new LatLng(this.map.get(0), this.map.get(1))).icon(icon).title(this.title).snippet(this.description);
+        MarkerOptions Marker = new MarkerOptions().position(new LatLng(this.map.get(0), this.map.get(1))).icon(icon).title(this.title).snippet(this.description);
+        return Marker;
     }
 }

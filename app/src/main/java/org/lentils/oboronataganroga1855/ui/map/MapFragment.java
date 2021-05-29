@@ -3,13 +3,12 @@ package org.lentils.oboronataganroga1855.ui.map;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -17,25 +16,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import org.lentils.oboronataganroga1855.MainNavigationActivity;
 import org.lentils.oboronataganroga1855.R;
-import org.lentils.oboronataganroga1855.SplashActivity;
 import org.lentils.oboronataganroga1855.model.Place;
 import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
 
@@ -52,6 +44,10 @@ public class MapFragment extends Fragment implements
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     ArrayList<Place> places;
+
+    int indexPlaceMarker;
+
+    FragmentTransaction transaction;
 
     @SuppressLint("MissingPermission")
     private OnMapReadyCallback callback = map -> {
@@ -75,8 +71,8 @@ public class MapFragment extends Fragment implements
         for (int i = 0; i < places.size(); i++) {
             map.addMarker(places.get(i).toMarker());
         }
-        LatLng locationStart = new LatLng(47.220646, 38.914722);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(locationStart, 13.0f));
+        LatLng locationCenter = new LatLng(47.220646, 38.914722);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(locationCenter, 13.0f));
     };
 
 
@@ -136,7 +132,29 @@ public class MapFragment extends Fragment implements
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Toast.makeText(requireContext(), "Info window clicked",
-                Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < places.size(); i++) {
+            if (places.get(i).getTitle().equals(marker.getTitle())) {
+                indexPlaceMarker = i;
+                break;
+            }
+        }
+        Place placeMarker = places.get(indexPlaceMarker);
+        Fragment fragment = new PlaceFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("type", placeMarker.getType());
+        bundle.putString("title", placeMarker.getTitle());
+        bundle.putString("description", placeMarker.getDescription());
+        bundle.putString("data", placeMarker.getData());
+        bundle.putString("time", placeMarker.getTime());
+        fragment.setArguments(bundle);
+        showFragment(fragment);
+    }
+
+    private void showFragment(Fragment fragment) {
+        transaction = getFragmentManager().beginTransaction();
+        transaction
+                .replace(R.id.main_activity, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
