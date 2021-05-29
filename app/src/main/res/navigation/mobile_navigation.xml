@@ -22,14 +22,14 @@
         tools:layout="@layout/fragment_sites" >
         <action
             android:id="@+id/action_navigation_sites_to_navigation_map"
-            app:destination="@id/navigation_map" />
+            app:destination="@id/navigation_maps" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_map"
+        android:id="@+id/navigation_maps"
         android:name="org.lentils.oboronataganroga1855.ui.map.MapFragment"
         android:label="@string/title_map"
-        tools:layout="@layout/fragment_map" >
+        tools:layout="@layout/fragment_maps" >
         <action
             android:id="@+id/action_navigation_map_to_navigation_account"
             app:destination="@id/navigation_account" />

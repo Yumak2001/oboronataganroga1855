@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">oboronataganroga1855</string>
+    <string name="app_name">Оборона Таганрога 1855г</string>
     <string name="title_activity_main_navigation">MainActivity</string>
     <string name="title_sites">Площадки</string>
     <string name="title_map">Карта</string>
     <string name="title_account">Аккаунт</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Доступ к службе определения местоположения необходим для демонстрации функции \'мое местоположение\', которая показывает ваше текущее местоположение на карте.</string>
+    <string name="location_permission_denied">В этом примере требуется разрешение на местоположение, чтобы включить слой \'мое местоположение\'. Пожалуйста, повторите попытку и предоставьте доступ для использования этого местоположения.\nЕсли в разрешении было постоянно отказано, его можно включить в системных настройках &gt; Приложения &gt; \'Оборона Таганрога 1855г\'.</string>
+    <string name="permission_required_toast">Для работы требуется разрешение на местоположение.</string>
 </resources>

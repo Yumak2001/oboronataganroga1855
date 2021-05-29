@@ -12,7 +12,7 @@
         android:title="@string/title_sites" />
 
     <item
-        android:id="@+id/navigation_map"
+        android:id="@+id/navigation_maps"
         android:icon="@drawable/ic_map_24dp"
         android:title="@string/title_map" />
 
