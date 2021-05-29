@@ -3,7 +3,6 @@ package org.lentils.oboronataganroga1855.register;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -13,16 +12,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.lentils.oboronataganroga1855.MainActivity;
 import org.lentils.oboronataganroga1855.R;
-import org.lentils.oboronataganroga1855.User;
+import org.lentils.oboronataganroga1855.model.User;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
 
@@ -61,6 +58,12 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     private void registerUser(){
 
         String email = editTextEmail.getText().toString().trim();
@@ -69,37 +72,37 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String passport = editTextPassport.getText().toString().trim();
 
         if(fullName.isEmpty()){
-            editTextFullName.setError("Full name is requried!");
+            editTextFullName.setError(getString(R.string.error_text_full_name));
             editTextFullName.requestFocus();
             return;
         }
 
         if(passport.isEmpty()){
-            editTextFullName.setError("Passport is requried!");
-            editTextFullName.requestFocus();
+            editTextPassport.setError(getString(R.string.error_text_passport));
+            editTextPassport.requestFocus();
             return;
         }
 
         if(email.isEmpty()){
-            editTextFullName.setError("Email name is requried!");
-            editTextFullName.requestFocus();
+            editTextEmail.setError(getString(R.string.error_text_email));
+            editTextEmail.requestFocus();
             return;
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("Please provide valid email!");
+            editTextEmail.setError(getString(R.string.error_text_email_variable));
             editTextEmail.requestFocus();
             return;
         }
 
         if(password.isEmpty()){
-            editTextPassword.setError("Password is required!");
+            editTextPassword.setError(getString(R.string.error_text_password));
             editTextPassword.requestFocus();
             return;
         }
 
         if(password.length() < 6){
-            editTextPassword.setError("Min password lenght should be 6 character");
+            editTextPassword.setError(getString(R.string.error_text_password_length));
             editTextPassword.requestFocus();
             return;
         }
@@ -120,15 +123,14 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if (task.isSuccessful()){
-                                        Toast.makeText(RegisterUser.this, "User has " +
-                                                "been registered succsessfull!", Toast.LENGTH_LONG)
+                                        Toast.makeText(RegisterUser.this, R.string.toast_register_successfully, Toast.LENGTH_LONG)
                                                 .show();
                                         progressBar.setVisibility(View.VISIBLE);
+                                        finish();
                                     }
                                     else
                                     {
-                                        Toast.makeText(RegisterUser.this, "Failed to" +
-                                                "register! Try again!", Toast.LENGTH_LONG)
+                                        Toast.makeText(RegisterUser.this, R.string.toast_register_failed, Toast.LENGTH_LONG)
                                                 .show();
                                         progressBar.setVisibility(View.GONE);
                                     }
@@ -138,7 +140,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         }
                         else
                         {
-                            Toast.makeText(RegisterUser.this, "Faild to register",
+                            Toast.makeText(RegisterUser.this, R.string.toast_register_failed,
                                     Toast.LENGTH_LONG)
                                     .show();
                             progressBar.setVisibility(View.GONE);

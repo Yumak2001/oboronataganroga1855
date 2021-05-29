@@ -6,22 +6,47 @@
     <string name="title_map">Карта</string>
     <string name="title_account">Аккаунт</string>
 
-    <string name="permission_rationale_location">Доступ к службе определения местоположения необходим для демонстрации функции \'мое местоположение\', которая показывает ваше текущее местоположение на карте.</string>
-    <string name="location_permission_denied">В этом примере требуется разрешение на местоположение, чтобы включить слой \'мое местоположение\'. Пожалуйста, повторите попытку и предоставьте доступ для использования этого местоположения.\nЕсли в разрешении было постоянно отказано, его можно включить в системных настройках &gt; Приложения &gt; \'Оборона Таганрога 1855г\'.</string>
-    <string name="permission_required_toast">Для работы требуется разрешение на местоположение.</string>
-  
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_name">Name</string>
-    <string name="hint_passport">Passport</string>
-    <string name="btn_login">LOGIN</string>
-    <string name="btn_register">REGISTER</string>
-    <string name="btn_link_to_register">Not a member? Sign up now!</string>
-    <string name="btn_link_to_login">Already registered! Login Me!</string>
-    
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="permission_rationale_location">Доступ к службе определения местоположения необходим для демонстрации функции
+        \'мое местоположение\', которая показывает ваше текущее местоположение на карте.</string>
+    <string name="location_permission_denied">В этом примере требуется разрешение на местоположение, чтобы включить слой
+        \'мое местоположение\'. Пожалуйста, повторите попытку и предоставьте доступ для использования этого местоположения.
+        \nЕсли в разрешении было постоянно отказано, его можно включить в системных настройках &gt; Приложения &gt;
+        \'Оборона Таганрога 1855г\'.</string>
+
+    <string name="register_title">РЕГИСТРАЦИЯ</string>
+    <string name="sign_title">ВХОД</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_name">ФИО</string>
+    <string name="hint_passport">Паспорт</string>
+    <string name="btn_login">ВОЙТИ</string>
+    <string name="btn_register">ЗАРЕГИСТРИРОВАТЬСЯ</string>
+    <string name="btn_link_to_register">Не зарегестрирован? Зарегестрироваться!</string>
+    <string name="btn_link_to_login">Уже зарегестрирован? Войти!</string>
+    <string name="forgot_password">Забыл пароль?</string>
+    <string name="register_button">Зарегестрироваться!</string>
 
     <string name="enter_ac">Войти в аккаунт</string>
     <string name="but_bl">Купить билет</string>
+
+    <!-- Error message show register and sign -->
+    <string name="error_text_full_name">Поле ФИО обязательно!</string>
+    <string name="error_text_passport">Поле Паспорт обязательно!</string>
+    <string name="error_text_email">Поле E-mail обязательно!</string>
+    <string name="error_text_email_variable">Пожалуйста, укажите действительный адрес электронной почты!</string>
+    <string name="error_text_password">Поле Пароль обязательно!</string>
+    <string name="error_text_password_length">Пароль должен быть не менее 6 символов</string>
+
+    <!-- Toast show message -->
+    <string name="toast_register_successfully">Пользователь успешно зарегистрирован!</string>
+    <string name="toast_sign_ok">Пользователь успешно авторизован!</string>
+    <string name="toast_register_failed">Не удалось зарегистрироваться! Попробуй еще раз!</string>
+    <string name="toast_sign_failed_login">Не удалось войти в систему! Пожалуйста, проверьте свои учетные данные.</string>
+    <string name="toast_sign_verification_email_false">Проверьте свою электронную почту, чтобы подтвердить свою учетную запись!</string>
+    <string name="toast_permission_required">Для работы требуется разрешение на местоположение.</string>
+
+    <!-- Toast show close message -->
+    <string name="title_logout_message">Выйти из приложения?</string>
+    <string name="message_logout_message">Вы действительно хотите выйти?</string>
 
 </resources>

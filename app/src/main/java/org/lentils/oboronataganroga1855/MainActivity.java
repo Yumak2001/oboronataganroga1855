@@ -18,9 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.lentils.oboronataganroga1855.register.ActivityRegistr;
-
-import java.sql.DatabaseMetaData;
+import org.lentils.oboronataganroga1855.model.User;
+import org.lentils.oboronataganroga1855.register.ActivityRegister;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, ActivityRegistr.class));
+                startActivity(new Intent(MainActivity.this, ActivityRegister.class));
             }
         });
 
@@ -59,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 User userProfile = snapshot.getValue(User.class);
 
                 if (userProfile != null){
-                    String fullName = userProfile.fullName;
-                    String email = userProfile.email;
+                    String fullName = userProfile.getFullName();
+                    String email = userProfile.getEmail();
+                    String passport = userProfile.getPassport();
                 }
             }
 

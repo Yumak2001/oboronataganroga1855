@@ -24,6 +24,11 @@ public class MainNavigationActivity extends AppCompatActivity {
     Fragment active = fragment1;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_navigation);
