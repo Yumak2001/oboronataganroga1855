@@ -55,7 +55,16 @@ public class MapFragment extends Fragment implements
 
     @SuppressLint("MissingPermission")
     private OnMapReadyCallback callback = map -> {
-        map.setMyLocationEnabled(true);
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            if (map != null) {
+                map.setMyLocationEnabled(true);
+            }
+        } else {
+            PermissionUtils.requestPermission((AppCompatActivity) requireActivity(), LOCATION_PERMISSION_REQUEST_CODE,
+                    Manifest.permission.ACCESS_FINE_LOCATION, true);
+        }
+        map.setOnInfoWindowClickListener(this);
         try {
             places = ReadJSONPlaces.readPlacesJSONFile(requireContext());
         } catch (IOException e) {
@@ -66,7 +75,6 @@ public class MapFragment extends Fragment implements
         for (int i = 0; i < places.size(); i++) {
             map.addMarker(places.get(i).toMarker());
         }
-        map.setOnInfoWindowClickListener(this);
         LatLng locationStart = new LatLng(47.220646, 38.914722);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(locationStart, 13.0f));
     };
@@ -75,8 +83,6 @@ public class MapFragment extends Fragment implements
     @Override
     public boolean onMyLocationButtonClick() {
         Toast.makeText(requireContext(), "MyLocation button clicked", Toast.LENGTH_SHORT).show();
-        // Return false so that we don't consume the event and the default behavior still occurs
-        // (the camera animates to the user's current position).
         return false;
     }
 
@@ -85,25 +91,18 @@ public class MapFragment extends Fragment implements
         Toast.makeText(requireContext(), "Current location:\n" + location, Toast.LENGTH_LONG).show();
     }
 
-    /**
-     * Enables the My Location layer if the fine location permission has been granted.
-     */
     private void enableMyLocation() {
-        // [START maps_check_location_permission]
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             if (map != null) {
                 map.setMyLocationEnabled(true);
             }
         } else {
-            // Permission to access the location is missing. Show rationale and request permission
             PermissionUtils.requestPermission((AppCompatActivity) requireActivity(), LOCATION_PERMISSION_REQUEST_CODE,
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         }
-        // [END maps_check_location_permission]
     }
 
-    // [START maps_check_location_permission_result]
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
@@ -111,17 +110,11 @@ public class MapFragment extends Fragment implements
         }
 
         if (PermissionUtils.isPermissionGranted(permissions, grantResults, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            // Enable the my location layer if the permission has been granted.
             enableMyLocation();
         } else {
-            // Permission was denied. Display an error message
-            // [START_EXCLUDE]
-            // Display the missing permission error dialog when the fragments resume.
             permissionDenied = true;
-            // [END_EXCLUDE]
         }
     }
-    // [END maps_check_location_permission_result]
 
     @Nullable
     @Override

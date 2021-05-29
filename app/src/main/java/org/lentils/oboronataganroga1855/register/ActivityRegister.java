@@ -127,12 +127,10 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
                     if (user.isEmailVerified()) {
                         reference = FirebaseDatabase.getInstance().getReference("Users");
                         userID = user.getUid();
-                        Log.i("USER", userID);
                         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 User userProfile = new User(snapshot.child("fullName").getValue().toString(), snapshot.child("passport").getValue().toString(), snapshot.child("email").getValue().toString());
-                                Log.i("USER", userProfile.getEmail());
                                 Toast toast = Toast.makeText(getApplicationContext(),
                                         R.string.toast_sign_ok, Toast.LENGTH_SHORT);
                                 toast.show();
