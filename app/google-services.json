@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "232048152877",
+    "project_id": "oboronataganroga1855",
+    "storage_bucket": "oboronataganroga1855.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232048152877:android:2aae72286db0eabc40c3a4",
+        "android_client_info": {
+          "package_name": "org.lentils.oboronataganroga1855"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232048152877-94i9d96j2gl7qrireionpmf4e3imcb3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5o7x1RFeSP4wpBp56UN_hWt9zlWNzPiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232048152877-94i9d96j2gl7qrireionpmf4e3imcb3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
