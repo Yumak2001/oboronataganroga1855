@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_account">
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="org.lentils.oboronataganroga1855.ui.account.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_navigation_sites"
+            app:destination="@id/navigation_sites" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sites"
+        android:name="org.lentils.oboronataganroga1855.ui.sites.SitesFragment"
+        android:label="@string/title_sites"
+        tools:layout="@layout/fragment_sites" >
+        <action
+            android:id="@+id/action_navigation_sites_to_navigation_map"
+            app:destination="@id/navigation_maps" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="org.lentils.oboronataganroga1855.ui.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_navigation_map_to_navigation_account"
+            app:destination="@id/navigation_account" />
+    </fragment>
+</navigation>
