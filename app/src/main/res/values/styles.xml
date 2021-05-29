@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Design.NoActionBar">
+        <item name="android:theme">@style/Theme.Oboronataganroga1855</item>
+    </style>
+
+    <style name="NavigationTheme" parent="AppTheme">
+        <item name="android:itemBackground">@color/header_light_green</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:theme">@style/AppTheme</item>
+    </style>
+
+</resources>
