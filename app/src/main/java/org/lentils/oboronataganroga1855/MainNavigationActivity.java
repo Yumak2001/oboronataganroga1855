@@ -11,9 +11,15 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONException;
+import org.lentils.oboronataganroga1855.model.Place;
+import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
 import org.lentils.oboronataganroga1855.ui.account.AccountFragment;
 import org.lentils.oboronataganroga1855.ui.map.MapFragment;
 import org.lentils.oboronataganroga1855.ui.sites.SitesFragment;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainNavigationActivity extends AppCompatActivity {
 
@@ -22,6 +28,8 @@ public class MainNavigationActivity extends AppCompatActivity {
     final Fragment mapFragment = new MapFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = accountFragment;
+
+    public static ArrayList<Place> places;
 
     @Override
     public void onBackPressed() {
@@ -40,6 +48,14 @@ public class MainNavigationActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_activity, mapFragment, "3").hide(mapFragment).commit();
         fm.beginTransaction().add(R.id.main_activity, sitesFragment, "2").hide(sitesFragment).commit();
         fm.beginTransaction().add(R.id.main_activity, accountFragment, "1").commit();
+
+        try {
+            places = ReadJSONPlaces.readPlacesJSONFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

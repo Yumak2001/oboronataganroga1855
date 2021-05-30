@@ -34,6 +34,8 @@ import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static org.lentils.oboronataganroga1855.MainNavigationActivity.places;
+
 public class MapFragment extends Fragment implements
         GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
@@ -43,7 +45,6 @@ public class MapFragment extends Fragment implements
     private boolean permissionDenied = false;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    ArrayList<Place> places;
 
     int indexPlaceMarker;
 
@@ -61,13 +62,6 @@ public class MapFragment extends Fragment implements
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         }
         map.setOnInfoWindowClickListener(this);
-        try {
-            places = ReadJSONPlaces.readPlacesJSONFile(requireContext());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         for (int i = 0; i < places.size(); i++) {
             map.addMarker(places.get(i).toMarker());
         }

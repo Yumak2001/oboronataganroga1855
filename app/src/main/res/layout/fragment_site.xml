@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="20dp"
+    android:background="@drawable/round_site_element"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/site_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/round_site_element_header"
+        android:paddingVertical="10dp">
+        <TextView
+            android:id="@+id/site_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#20311C"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Путь Петра Великого"
+            android:textSize="30dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#20311C"
+            android:layout_marginBottom="5dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="10dp">
+            <TextView
+                android:id="@+id/site_header_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="#20311C"
+                android:layout_gravity="left"
+                android:text="21.05.21"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:id="@+id/site_header_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="#20311C"
+                android:singleLine="true"
+                android:text="21:05"
+                android:textSize="25dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/site_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#20311C"
+android:text="Проход шлюбки с Петром I вдоль набережной"
+        android:textSize="20dp"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:textColor="#20311C"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_site_location_40dp"
+            android:paddingLeft="20dp"/>
+        <TextView
+            android:id="@+id/site_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#20311C"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="Петровская площадка"
+            android:textSize="18dp"
+            android:textAppearance="?attr/textAppearanceListItem" />
+    </LinearLayout>
+</LinearLayout>
