@@ -1,66 +1,62 @@
 package org.lentils.oboronataganroga1855.ui.account;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.lentils.oboronataganroga1855.R;
+import org.lentils.oboronataganroga1855.adpter.AdapterCardViewSettings;
+import org.lentils.oboronataganroga1855.adpter.settings_cards;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AccountFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class AccountFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class AccountFragment extends Fragment{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private CardView[] cardViewProg = new CardView[4];
+    int directionNumber;
 
-    public AccountFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentAccaunt.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance(String param1, String param2) {
-        AccountFragment fragment = new AccountFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    static AccountFragment newInstance() {
+        return new AccountFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+
+        RecyclerView recycleViewSettings = view.findViewById(R.id.recycleViewSettings);
+        recycleViewSettings.setHasFixedSize(true);
+
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        recycleViewSettings.setLayoutManager(llm);
+
+        List<settings_cards> cardsSettings = new ArrayList<>();
+        cardsSettings.add(new settings_cards("Променад", "Пешая прогулка по набережной", getResources().getDrawable(R.drawable.promenad)));
+        cardsSettings.add(new settings_cards ("Бал", "Вальс, Полька, Полонез...", getResources().getDrawable(R.drawable.bal)));
+        cardsSettings.add(new settings_cards("Парусная регата", "Ветер в лицо, брызги волн", getResources().getDrawable(R.drawable.parys)));
+        cardsSettings.add(new settings_cards("Гонка на ялах", "Ялы...интересное слово...", getResources().getDrawable(R.drawable.ili)));
+        cardsSettings.add(new settings_cards("Реконструкция боя", "Учавствуйте в обороне Таганрога", getResources().getDrawable(R.drawable.sabli)));
+        cardsSettings.add(new settings_cards("Конкурс костюма", "Сделай свой костюм и получи приз", getResources().getDrawable(R.drawable.kostim)));
+        cardsSettings.add(new settings_cards("Конкурс рисунка", "Нарисуй тематический рисунок",getResources().getDrawable(R.drawable.risunok)));
+
+        recycleViewSettings.setAdapter(new AdapterCardViewSettings(getContext(), cardsSettings));
+
+        return view;
     }
 }

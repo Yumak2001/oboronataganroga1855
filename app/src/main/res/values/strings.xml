@@ -48,5 +48,9 @@
     <!-- Toast show close message -->
     <string name="title_logout_message">Выйти из приложения?</string>
     <string name="message_logout_message">Вы действительно хотите выйти?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="mr_head">Регистрация на фестиваль:</string>
 
 </resources>
