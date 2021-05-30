@@ -16,20 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView45"
-        android:layout_width="275dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/txtenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewPeople"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/browser_actions_bg_grey"
         app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,11 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:isScrollContainer="true"
         android:orientation="vertical" >
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:gravity="center"
             android:padding="15dp"
             app:cornerRadius="20dp"

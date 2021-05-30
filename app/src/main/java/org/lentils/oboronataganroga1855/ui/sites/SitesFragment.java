@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.lentils.oboronataganroga1855.R;
-import org.lentils.oboronataganroga1855.ui.sites.dummy.SiteContent;
+import org.lentils.oboronataganroga1855.model.SiteContent;
 
 /**
  * A fragment representing a list of Items.

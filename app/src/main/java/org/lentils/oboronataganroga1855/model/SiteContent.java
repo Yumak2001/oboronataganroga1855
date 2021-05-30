@@ -1,4 +1,4 @@
-package org.lentils.oboronataganroga1855.ui.sites.dummy;
+package org.lentils.oboronataganroga1855.model;
 
 import android.content.Context;
 

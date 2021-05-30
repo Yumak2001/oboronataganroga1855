@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 import org.json.JSONException;
+import org.lentils.oboronataganroga1855.MainNavigationActivity;
+import org.lentils.oboronataganroga1855.PlaceActivity;
 import org.lentils.oboronataganroga1855.R;
 import org.lentils.oboronataganroga1855.model.Place;
 import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
@@ -132,23 +135,12 @@ public class MapFragment extends Fragment implements
                 break;
             }
         }
-        Place placeMarker = places.get(indexPlaceMarker);
-        Fragment fragment = new PlaceFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("type", placeMarker.getType());
-        bundle.putString("title", placeMarker.getTitle());
-        bundle.putString("description", placeMarker.getDescription());
-        bundle.putString("data", placeMarker.getData());
-        bundle.putString("time", placeMarker.getTime());
-        fragment.setArguments(bundle);
-        showFragment(fragment);
-    }
-
-    private void showFragment(Fragment fragment) {
-        transaction = getFragmentManager().beginTransaction();
-        transaction
-                .replace(R.id.main_activity, fragment)
-                .addToBackStack(null)
-                .commit();
+        Intent placeIntent = new Intent(requireContext(), PlaceActivity.class);
+        placeIntent.putExtra("type", places.get(indexPlaceMarker).getType());
+        placeIntent.putExtra("title", places.get(indexPlaceMarker).getTitle());
+        placeIntent.putExtra("description", places.get(indexPlaceMarker).getDescription());
+        placeIntent.putExtra("data", places.get(indexPlaceMarker).getData());
+        placeIntent.putExtra("time", places.get(indexPlaceMarker).getTime());
+        startActivity(placeIntent);
     }
 }

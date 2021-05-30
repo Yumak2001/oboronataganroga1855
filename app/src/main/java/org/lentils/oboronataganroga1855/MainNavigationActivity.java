@@ -26,6 +26,7 @@ public class MainNavigationActivity extends AppCompatActivity {
     final Fragment accountFragment = new AccountFragment();
     final Fragment sitesFragment = new SitesFragment();
     final Fragment mapFragment = new MapFragment();
+
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = accountFragment;
 
@@ -94,7 +95,6 @@ public class MainNavigationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 

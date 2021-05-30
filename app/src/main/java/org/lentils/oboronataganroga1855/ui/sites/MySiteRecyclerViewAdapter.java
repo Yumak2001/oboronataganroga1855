@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.lentils.oboronataganroga1855.R;
-import org.lentils.oboronataganroga1855.ui.sites.dummy.SiteContent.DummyItem;
+import org.lentils.oboronataganroga1855.model.SiteContent.DummyItem;
 
 import java.util.List;
 
