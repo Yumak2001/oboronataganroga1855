@@ -1,0 +1,71 @@
+[
+  {
+    "type": "restaurant",
+    "title": "Дон Марио",
+    "map": [47.211815, 38.933018],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Тарель",
+    "map": [47.216417, 38.927065],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "БорЩи иЩи",
+    "map": [47.214345, 38.930369],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Point 188",
+    "map": [47.212829, 38.936649],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Жемчужина",
+    "map": [47.214339, 38.939030],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Причал",
+    "map": [47.215276, 38.941045],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Горький",
+    "map": [47.218625, 38.924313],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Огонёк",
+    "map": [47.218765, 38.925574],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Сказка",
+    "map": [47.219200, 38.927286],
+    "discount": "Скидка 10%"
+  },
+
+  {
+    "type": "restaurant",
+    "title": "Рыжий Шеф",
+    "map": [47.215619, 38.922405],
+    "discount": "Скидка 10%"
+  }
+]

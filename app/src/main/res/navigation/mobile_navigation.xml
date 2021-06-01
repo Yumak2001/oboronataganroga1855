@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="org.lentils.oboronataganroga1855.ui.account.AccountFragment"
+        android:name="org.lentils.oboronataganroga1855.fragment.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_sites"
-        android:name="org.lentils.oboronataganroga1855.ui.sites.SitesFragment"
+        android:name="org.lentils.oboronataganroga1855.fragment.sites.SitesFragment"
         android:label="@string/title_sites"
         tools:layout="@layout/fragment_sites" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_maps"
-        android:name="org.lentils.oboronataganroga1855.ui.map.MapFragment"
+        android:name="org.lentils.oboronataganroga1855.fragment.mapnt.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_maps" >
         <action

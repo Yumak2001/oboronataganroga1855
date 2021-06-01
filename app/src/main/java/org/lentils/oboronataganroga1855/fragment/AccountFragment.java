@@ -1,6 +1,5 @@
-package org.lentils.oboronataganroga1855.ui.account;
+package org.lentils.oboronataganroga1855.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -18,7 +17,6 @@ import org.lentils.oboronataganroga1855.adpter.settings_cards;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class AccountFragment extends Fragment{
 

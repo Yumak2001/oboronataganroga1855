@@ -1,13 +1,7 @@
 package org.lentils.oboronataganroga1855.model;
 
-import android.content.Context;
-
-import org.json.JSONException;
 import org.lentils.oboronataganroga1855.MainNavigationActivity;
-import org.lentils.oboronataganroga1855.model.Place;
-import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

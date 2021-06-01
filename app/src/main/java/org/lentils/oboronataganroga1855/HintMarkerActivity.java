@@ -8,7 +8,7 @@ import android.util.Log;
 
 import org.lentils.oboronataganroga1855.model.Place;
 
-public class PlaceActivity extends AppCompatActivity {
+public class HintMarkerActivity extends AppCompatActivity {
 
     Place place;
 

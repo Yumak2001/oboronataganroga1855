@@ -12,11 +12,15 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
+import org.lentils.oboronataganroga1855.model.Hostel;
 import org.lentils.oboronataganroga1855.model.Place;
-import org.lentils.oboronataganroga1855.model.ReadJSONPlaces;
-import org.lentils.oboronataganroga1855.ui.account.AccountFragment;
-import org.lentils.oboronataganroga1855.ui.map.MapFragment;
-import org.lentils.oboronataganroga1855.ui.sites.SitesFragment;
+import org.lentils.oboronataganroga1855.model.Restaurant;
+import org.lentils.oboronataganroga1855.model.readJSON.Hostels;
+import org.lentils.oboronataganroga1855.model.readJSON.Places;
+import org.lentils.oboronataganroga1855.model.readJSON.Restaurants;
+import org.lentils.oboronataganroga1855.fragment.AccountFragment;
+import org.lentils.oboronataganroga1855.fragment.MapFragment;
+import org.lentils.oboronataganroga1855.fragment.sites.SitesFragment;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +35,8 @@ public class MainNavigationActivity extends AppCompatActivity {
     Fragment active = accountFragment;
 
     public static ArrayList<Place> places;
+    public static ArrayList<Hostel> hostels;
+    public static ArrayList<Restaurant> restaurants;
 
     @Override
     public void onBackPressed() {
@@ -51,7 +57,21 @@ public class MainNavigationActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.main_activity, accountFragment, "1").commit();
 
         try {
-            places = ReadJSONPlaces.readPlacesJSONFile(this);
+            places = Places.readPlacesJSONFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            hostels = Hostels.readHostelsJSONFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            restaurants = Restaurants.readRestaurantsJSONFile(this);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {

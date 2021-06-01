@@ -1,4 +1,4 @@
-package org.lentils.oboronataganroga1855.ui.sites;
+package org.lentils.oboronataganroga1855.fragment.sites;
 
 import android.content.Context;
 import android.os.Bundle;

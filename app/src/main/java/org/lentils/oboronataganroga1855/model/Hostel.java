@@ -1,39 +1,30 @@
 package org.lentils.oboronataganroga1855.model;
 
-import android.util.Log;
-
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
-public class Place {
+public class Hostel {
     private String type;
     private String title;
-    private String description;
+    private String discount;
     private ArrayList<Double> map = new ArrayList<>(2);
-    private String data;
-    private String time;
 
-    public Place(String type, String title, String description, Double map1, Double map2, String data, String time) {
+    public Hostel(String type, String title, String discount, Double map1, Double map2) {
         this.type = type;
         this.title = title;
-        this.description = description;
+        this.discount = discount;
         this.map.add(map1);
         this.map.add(map2);
-        this.data = data;
-        this.time = time;
     }
 
-    public Place(String type, String title, String description, String data, String time) {
+    public Hostel(String type, String title, String discount) {
         this.type = type;
         this.title = title;
-        this.description = description;
-        this.data = data;
-        this.time = time;
+        this.discount = discount;
     }
 
     public String getType() {
@@ -44,8 +35,8 @@ public class Place {
         return this.title;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getDiscount() {
+        return this.discount;
     }
 
     public Double getMap1() {
@@ -56,20 +47,12 @@ public class Place {
         return this.map.get(1);
     }
 
-    public String getData() {
-        return this.data;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
     public MarkerOptions toMarker() {
         MarkerOptions Marker = new MarkerOptions()
                 .position(new LatLng(this.map.get(0), this.map.get(1)))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
                 .title(this.title)
-                .snippet(this.description);
+                .snippet(this.discount);
         return Marker;
     }
 }

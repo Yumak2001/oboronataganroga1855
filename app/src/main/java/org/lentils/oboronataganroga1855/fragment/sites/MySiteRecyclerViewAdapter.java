@@ -1,4 +1,4 @@
-package org.lentils.oboronataganroga1855.ui.sites;
+package org.lentils.oboronataganroga1855.fragment.sites;
 
 import androidx.recyclerview.widget.RecyclerView;
 

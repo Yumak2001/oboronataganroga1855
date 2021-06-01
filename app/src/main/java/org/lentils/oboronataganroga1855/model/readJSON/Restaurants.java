@@ -1,11 +1,12 @@
-package org.lentils.oboronataganroga1855.model;
+package org.lentils.oboronataganroga1855.model.readJSON;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.lentils.oboronataganroga1855.R;
+import org.lentils.oboronataganroga1855.model.Place;
+import org.lentils.oboronataganroga1855.model.Restaurant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,26 +14,23 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ReadJSONPlaces {
+public class Restaurants {
 
-    public static ArrayList<Place> readPlacesJSONFile(Context context) throws IOException, JSONException {
+    public static ArrayList<Restaurant> readRestaurantsJSONFile(Context context) throws IOException, JSONException {
 
-        // Read content of company.json
-        String jsonText = readText(context, R.raw.places);
+        String jsonText = readText(context, R.raw.restaurants);
 
         JSONArray jsonRoot = new JSONArray(jsonText);
-        ArrayList<Place> places = new ArrayList<>(jsonRoot.length());
+        ArrayList<Restaurant> restaurants = new ArrayList<>(jsonRoot.length());
         for (int i = 0; i < jsonRoot.length(); i++) {
             String type = jsonRoot.getJSONObject(i).getString("type");
             String title = jsonRoot.getJSONObject(i).getString("title");
-            String description = jsonRoot.getJSONObject(i).getString("description");
+            String discount = jsonRoot.getJSONObject(i).getString("discount");
             Double map1 = jsonRoot.getJSONObject(i).getJSONArray("map").getDouble(0);
             Double map2 = jsonRoot.getJSONObject(i).getJSONArray("map").getDouble(1);
-            String data = jsonRoot.getJSONObject(i).getString("data");
-            String time = jsonRoot.getJSONObject(i).getString("time");
-            places.add(new Place(type, title, description, map1, map2, data, time));
+            restaurants.add(new Restaurant(type, title, discount, map1, map2));
         }
-        return places;
+        return restaurants;
     }
 
     private static String readText(Context context, int resId) throws IOException {
