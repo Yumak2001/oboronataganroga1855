@@ -12,14 +12,15 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
+import org.lentils.oboronataganroga1855.fragment.HintMarkerFragment;
 import org.lentils.oboronataganroga1855.model.Hostel;
 import org.lentils.oboronataganroga1855.model.Place;
 import org.lentils.oboronataganroga1855.model.Restaurant;
 import org.lentils.oboronataganroga1855.model.readJSON.Hostels;
 import org.lentils.oboronataganroga1855.model.readJSON.Places;
 import org.lentils.oboronataganroga1855.model.readJSON.Restaurants;
-import org.lentils.oboronataganroga1855.fragment.AccountFragment;
-import org.lentils.oboronataganroga1855.fragment.MapFragment;
+import org.lentils.oboronataganroga1855.fragment.account.AccountFragment;
+import org.lentils.oboronataganroga1855.fragment.map.MapFragment;
 import org.lentils.oboronataganroga1855.fragment.sites.SitesFragment;
 
 import java.io.IOException;

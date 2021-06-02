@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.lentils.oboronataganroga1855">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -17,10 +18,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Oboronataganroga1855">
-        <activity android:name=".HintMarkerActivity"
+        android:theme="@style/AppTheme">
+        <activity android:name=".fragment.HintMarkerFragment"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            tools:ignore="Instantiatable" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -41,7 +43,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainNavigationActivity"
             android:screenOrientation="portrait"

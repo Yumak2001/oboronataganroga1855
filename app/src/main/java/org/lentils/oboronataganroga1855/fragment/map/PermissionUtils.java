@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package org.lentils.oboronataganroga1855.fragment;
+package org.lentils.oboronataganroga1855.fragment.map;
 
 import android.Manifest;
 import android.app.AlertDialog;

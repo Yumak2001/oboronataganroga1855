@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="org.lentils.oboronataganroga1855.fragment.AccountFragment"
+        android:name="org.lentils.oboronataganroga1855.fragment.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_maps"
-        android:name="org.lentils.oboronataganroga1855.fragment.mapnt.MapFragment"
+        android:name="org.lentils.oboronataganroga1855.fragment.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_maps" >
         <action

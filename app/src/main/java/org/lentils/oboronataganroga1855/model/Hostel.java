@@ -1,8 +1,8 @@
 package org.lentils.oboronataganroga1855.model;
 
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ public class Hostel {
     private String title;
     private String discount;
     private ArrayList<Double> map = new ArrayList<>(2);
+    private Marker marker = null;
 
     public Hostel(String type, String title, String discount, Double map1, Double map2) {
         this.type = type;
@@ -49,10 +50,20 @@ public class Hostel {
 
     public MarkerOptions toMarker() {
         MarkerOptions Marker = new MarkerOptions()
-                .position(new LatLng(this.map.get(0), this.map.get(1)))
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
-                .title(this.title)
-                .snippet(this.discount);
+                    .position(new LatLng(this.map.get(0), this.map.get(1)))
+                    .icon(BitmapDescriptorFactory.defaultMarker(300))
+                    .title(this.title)
+                    .snippet(this.discount);
         return Marker;
+    }
+
+    public void setMarker(Marker marker) {
+        this.marker = marker;
+    }
+
+    public void setVisibleMarker(Boolean visibleMarker) {
+        if (this.marker != null) {
+            this.marker.setVisible(visibleMarker);
+        }
     }
 }

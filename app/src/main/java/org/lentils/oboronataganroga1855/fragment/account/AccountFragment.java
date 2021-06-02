@@ -1,4 +1,4 @@
-package org.lentils.oboronataganroga1855.fragment;
+package org.lentils.oboronataganroga1855.fragment.account;
 
 import android.os.Bundle;
 

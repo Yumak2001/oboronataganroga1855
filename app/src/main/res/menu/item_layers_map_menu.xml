@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/layers_menu_button_place"
+        android:checkable="true"
+        android:checked="true"
+        android:icon="@drawable/ic_map_24dp"
+        android:iconTint="#86DA00"
+        android:title="Достопримечательности"/>
+    <item
+        android:id="@+id/layers_menu_button_restaurant"
+        android:checkable="true"
+        android:checked="true"
+        android:icon="@drawable/ic_map_24dp"
+        android:iconTint="#C500A4"
+        android:title="Рестораны"/>
+    <item
+        android:id="@+id/layers_menu_button_hostel"
+        android:checkable="true"
+        android:checked="true"
+        android:icon="@drawable/ic_map_24dp"
+        android:iconTint="#FF001E"
+        android:title="Отели"/>
+
+</menu>

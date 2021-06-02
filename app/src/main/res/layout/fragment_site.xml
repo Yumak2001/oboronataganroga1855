@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:layout_margin="20dp"
-    android:background="@drawable/round_site_element"
+    android:background="@drawable/background_round_site_element"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/round_site_element_header"
+        android:background="@drawable/background_round_site_element_header"
         android:paddingVertical="10dp">
         <TextView
             android:id="@+id/site_header_title"
